@@ -84,15 +84,14 @@ class body extends Component {
         }
 
         var box = {
-            backgroundColor: 'rgba(1, 1, 1, 0.1)',
+            backgroundColor: 'rgba(12, 56, 235,0.1)',
             width: "30%",
-            border: '1px solid black',
+            border: '2px solid white',
             padding: '10px',
             margin: '30px',
             borderRadius: '10px',
             position: 'relative',
         }
-
         let isLog = this.state.i;
         if (isLog) {
             return (
@@ -105,23 +104,23 @@ class body extends Component {
 
                     <div class="container">
                         <div style={obj}>
-                            <form>
-                            <input style={{position:'relative',backgroundColor:'grey',width:"40%",top:"2%",marginRight:'0.5em',}} type="text" placeholder="search ticker" onChange={(event) => {
-                                this.setState({
-                                    h: event.target.value
-                                })
-                            }}></input>
-                            <input style={{position:'relative',backgroundColor:'grey',top:"2%"}} type="submit" onClick={(event) => {
-                                this.setState({
-                                    i: false
-                                })
-                                this.callApi(this.state.h)
-                                event.preventDefault()
-                            }}>
-                            </input>
+                            <form style={{ position: 'relative', top: '1%' }}>
+                                <input style={{ position: 'relative', borderRadius: '20px',borderColor:'white',borderWidth:'3px',outline:'none', backgroundColor: 'rgba(12, 56, 235,0.1)', height: '40px', width: "60%", marginRight: '0.5em', }} type="text" placeholder="search ticker" onChange={(event) => {
+                                    this.setState({
+                                        h: event.target.value
+                                    })
+                                }}></input>
+                                <input style={{ position: 'relative', backgroundColor: 'rgba(12, 56, 235,0.1)', borderRadius: '20px', borderColor:'white',borderWidth:'3px',outline:'none',height: '40px', width: "6%" }} type="submit" onClick={(event) => {
+                                    this.setState({
+                                        i: false
+                                    })
+                                    this.callApi(this.state.h)
+                                    event.preventDefault()
+                                }}>
+                                </input>
                             </form>
                             <div style={box}>
-                                <div style={{ position: 'relative', textAlign: 'left', left: "5%" }}>
+                                <div style={{ position: 'relative', textAlign: 'left', left: "5%"}}>
                                     <h1 style={{ color: 'black' }}>{this.state.Ticker}</h1>
                                     <h5 style={{ color: 'black', position: 'relative', left: '1%' }}>{this.state.symbol}</h5>
                                     <h3 style={{ color: 'green', position: 'relative', left: '1%' }}>{"$" + this.state.stockPrice}</h3>
@@ -132,6 +131,9 @@ class body extends Component {
                                     <h3 style={{ color: 'black', position: 'relative', left: '1%' }}>Long Term Trend</h3>
                                     <h3 style={{ color: 'green', position: 'relative', left: '1%' }}>{this.state.longTerm === 'UP' ? <BsFillCaretUpFill /> : <h3 style={{ color: 'red' }}><BsFillCaretDownFill /></h3>}</h3>
                                 </div>
+                            </div>
+                            <div>
+                                Hello
                             </div>
                         </div>
                     </div>

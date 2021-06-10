@@ -105,17 +105,21 @@ class body extends Component {
 
                     <div class="container">
                         <div style={obj}>
-                            <input type="text" placeholder="search ticker" onChange={(event) => {
+                            <form>
+                            <input style={{position:'relative',backgroundColor:'grey',width:"40%",top:"2%",marginRight:'0.5em',}} type="text" placeholder="search ticker" onChange={(event) => {
                                 this.setState({
                                     h: event.target.value
                                 })
                             }}></input>
-                            <input type="submit" onClick={(event) => {
+                            <input style={{position:'relative',backgroundColor:'grey',top:"2%"}} type="submit" onClick={(event) => {
                                 this.setState({
                                     i: false
                                 })
                                 this.callApi(this.state.h)
-                            }}></input>
+                                event.preventDefault()
+                            }}>
+                            </input>
+                            </form>
                             <div style={box}>
                                 <div style={{ position: 'relative', textAlign: 'left', left: "5%" }}>
                                     <h1 style={{ color: 'black' }}>{this.state.Ticker}</h1>
